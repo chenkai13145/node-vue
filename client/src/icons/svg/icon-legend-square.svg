@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="9px" viewBox="0 0 9 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <desc>Created with Sketch.</desc>
+    <g id="监控中心" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="运输实时监控-聚合未筛选--" transform="translate(-219.000000, -326.000000)" fill="#C6F0D9" fill-rule="nonzero">
+            <g id="地图模块/左侧数据" transform="translate(83.000000, 70.000000)">
+                <g id="Group-8">
+                    <g transform="translate(136.000000, 252.000000)">
+                        <g id="Group-5">
+                            <rect id="ic_legend_square" x="0" y="4" width="9" height="9"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
