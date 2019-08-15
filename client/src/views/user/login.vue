@@ -25,10 +25,16 @@
         </div>
       </el-form>
     </div>
+    <div class="login_meng" v-if="trunof">
+     <div class="img_login">
+         <cap-tcha @loginFn="loginFn"></cap-tcha>
+     </div>
+    </div>
   </div>
 </template>
 <script>
 import jwt_decode from 'jwt-decode';
+import CapTcha from './model/captcha'
 
 export default {
   data() {
@@ -37,18 +43,30 @@ export default {
         email: "",
         password: ""
       },
-      rules2: {
+      rules2:{
         email: [{ type:"email",required:true,message:"邮箱格式不合法", trigger: "blur" }],
         password: [{required:true,message:"密码不能为空", trigger: "blur" },{min:4,max:16,message:"密码长度4到16位之间",trigger:"blur"}]
-      }
+      },
+      trunof:false
     };
   },
- 
   methods:{
       submitFrom(loginFrom){
          this.$refs[loginFrom].validate(valid=>{
              if(valid){
-                 const data=this.login
+                 this.trunof=true
+             }
+         })
+      },
+      isEmpty(value){
+              return (value===undefined || value===null ||
+                    (typeof value==="object"&&Object.keys(value).length==0) ||
+                    (typeof value==="string"&&value.trim().length==0)
+              );
+      },
+      loginFn(){
+        this.trunof=false
+           const data=this.login
                  this.$axios.post('/api/users/login',data)
                             .then(res=>{
                                if(res.data.success){
@@ -75,15 +93,15 @@ export default {
                                    })
                                }
                             })
-             }
-         })
-      },
-      isEmpty(value){
-              return (value===undefined || value===null ||
-                    (typeof value==="object"&&Object.keys(value).length==0) ||
-                    (typeof value==="string"&&value.trim().length==0)
-              );
       }
+  },
+  components:{
+    CapTcha,
+  },
+  computed:{
+    // trunof(){
+      
+    // }
   }
 };
 </script>
@@ -92,6 +110,25 @@ export default {
   height: 100vh;
   background: url("../../assets/bg.png") no-repeat;
   background-size: cover;
+  .login_meng{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,.7);
+     .img_login{
+         position: absolute;
+         top:30%;
+         left: 50%;
+         transform: translateX(-50%);
+  }
+  }
+ 
+  .loginFrom{
+      position: relative;
+    
+  }
+  
   .from_container {
     padding: 100px 10px;
     width: 350px;
