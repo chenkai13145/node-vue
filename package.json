@@ -7,7 +7,7 @@
     "client-install": "npm install --prefix client",
     "client": "npm start --prefix client",
     "start": "node app.js",
-    "server": "nodemon app.js",
+    "server": "node app.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],

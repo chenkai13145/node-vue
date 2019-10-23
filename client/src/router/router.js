@@ -87,6 +87,10 @@ const router= new Router({
 router.beforeEach((to,from,next)=>{
       const  isLogin=localStorage.eToken ? true : false;
       if(to.path=='/login' || to.path=='/register'){
+        if(isLogin){
+          next('/index')
+          return;
+        }
          next();
          return;
       }

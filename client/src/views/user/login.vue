@@ -83,7 +83,7 @@ export default {
                                    //token存储到vuex
                                    this.$store.dispatch('setAuthtoken',!this.isEmpty(decode));
                                    this.$store.dispatch('setuser',decode);
-
+            // console.log(this.$router)
                                    this.$router.push('/index')
                                }else{
                                    //登录失败
@@ -97,6 +97,9 @@ export default {
   },
   components:{
     CapTcha,
+  },
+  created(){
+     
   },
   computed:{
     // trunof(){
