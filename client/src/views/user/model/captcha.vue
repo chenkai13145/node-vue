@@ -72,17 +72,19 @@ export default {
             // for (var i = 1; i < 10; i++) {
             //     this.imgList.push(i + ".jpg");
             // }
-            fetch("https://www.apiopen.top/meituApi?page=4")
+            fetch("http://jsonplaceholder.typicode.com/photos")
               .then(res => {
                 return res.json();
               })
               .then(res => {
-                let imgdata = res.data;
+                let imgdata = res;
+                console.log(res)
                 for (var i = 0; i < imgdata.length; i++) {
                   this.imgList.push(
                     "https://images.weserv.nl/?url=" + imgdata[i].url
                   );
                 }
+                console.log(this.imgList)
                 this.init();
               });
           }
